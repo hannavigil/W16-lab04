@@ -7,8 +7,8 @@ import javax.swing.*;
     
     @author Head First Java, 2nd Edition p. 355
     @author P. Conrad (who only typed it in and added the Javadoc comments)
-    @author TODO: Add additional author here
-    @version CS56, Spring 2013, UCSB
+    @author Ryan Tse
+    @version CS56, W16, UCSB
 */
 
 public class SimpleGui1 {
