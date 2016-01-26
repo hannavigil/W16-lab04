@@ -54,7 +54,7 @@ public class PictureComponent extends JComponent
 	
         // lroof and rroof are the left and right sides of the roof,
         Line2D.Double lroof = new Line2D.Double(100, 200, 150, 150);
-        Line2D.Double rroof = new Line2D.Double(150,150, 200,200);
+        Line2D.Double rroof = new Line2D.Double(150, 150, 200, 200);
 	
         g2.draw(lroof);
         g2.draw(rroof);
@@ -87,17 +87,16 @@ public class PictureComponent extends JComponent
 	     middleRadius
 	     );
         g2.draw(snowManMiddleCircle);
-	
-        // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
 
 	Circle snowManTopCircle =
-	    new Circle
+	    new Circle 
 	    (
 	     snowManCenterBottomX,
-	     snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius, topRadius);
+	     snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius, 
+	     topRadius);
 
 	g2.draw(snowManTopCircle);
 
-	g2.drawString("Skyler Bistarkey-Rez drawing a wonderful snowman with a house", 20, 20);
+	g2.drawString("Skyler Bistarkey-Rez drawing a fabulous snowman with a spectacular house", 20, 20);
     }
 }
