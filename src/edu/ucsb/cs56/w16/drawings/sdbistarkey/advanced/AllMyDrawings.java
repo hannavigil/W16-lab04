@@ -23,7 +23,7 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	SmartPhone sp1 = new SmartPhone(100,250,50,75,10);
+	SmartPhone sp1 = new SmartPhone(100,250,50,75,5);
 	g2.setColor(Color.CYAN); g2.draw(sp1);
 	
 	// Make a black house that's half the size, 

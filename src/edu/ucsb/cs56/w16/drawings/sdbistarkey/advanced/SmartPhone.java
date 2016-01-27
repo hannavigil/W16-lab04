@@ -38,12 +38,12 @@ public class SmartPhone extends GeneralPathWrapper implements Shape
         // hard coded a particular drawing, this may be an easier
         // way.
 
-	double innerScreenX = 5 + x;
-	double innerScreenY = 5 + y;
-	double innerScreenWidth = width - 10;
-	double innerScreenHeight = height - 10;
-	double homeButtonX = (x + width/2.0);
-	double homeButtonY = (y + height - 2.5);
+	double innerScreenX = 10 + x;
+	double innerScreenY = 10 + y;
+	double innerScreenWidth = width - 20;
+	double innerScreenHeight = height - 20;
+	double homeButtonX = (x + width/2.0 - radius/2.0);
+	double homeButtonY = (y + (height + innerScreenHeight)/2.0 + radius/2.0);
 
 	
         // Make the body of the phone
