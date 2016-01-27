@@ -23,20 +23,20 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
+	SmartPhone sp1 = new SmartPhone(100,250,50,75,10);
+	g2.setColor(Color.CYAN); g2.draw(sp1);
 	
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
 	
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
+	Shape sp2 = ShapeTransforms.scaledCopyOfLL(sp1,0.5,0.5);
+	sp2 = ShapeTransforms.translatedCopyOf(sp2,150,0);
+	g2.setColor(Color.BLACK); g2.draw(sp2);
 	
 	// Here's a house that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	sp2 = ShapeTransforms.scaledCopyOfLL(sp2,4,4);
+	sp2 = ShapeTransforms.translatedCopyOf(sp2,150,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -48,8 +48,9 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	
+	g2.draw(sp2); 
+
+	/*
 	// Draw two houses with Windows
 	
 	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
@@ -57,12 +58,12 @@ public class AllMyDrawings
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
-	
+	*/
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
-	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.setColor(Color.BLACK);
+	g2.drawString("A few smart phones by Skyler Bistarkey-Rez", 20,20);
     }
     
     
