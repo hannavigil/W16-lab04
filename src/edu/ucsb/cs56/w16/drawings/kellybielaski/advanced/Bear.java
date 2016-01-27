@@ -68,7 +68,7 @@ public class Bear extends GeneralPathWrapper implements Shape
 	double leyey=y+2*rad/3+rad/12-eyerad;
 	Ellipse2D.Double leye=new Ellipse2D.Double(leyex, leyey, 2*eyerad, 2*eyerad);
 
-        // put the whole face together	
+        // put the whole face together
         GeneralPath wholeBear = this.get();
         wholeBear.append(face, false);
         wholeBear.append(mouth, false);

@@ -19,7 +19,7 @@ public class SmilingBear extends Bear implements Shape
        @param y y coord of upper left corner of face
        @param rad radius of the face
        @param smile is the ratio out of 100 of how big the smile is
-     */
+    */
     public SmilingBear(double x, double y, double rad, double smile)
     {
 	//smile parameter is some number out of 100... the bigger the number the bigger the smile!

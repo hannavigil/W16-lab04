@@ -32,21 +32,21 @@ public class WritePictureToFile
      * @param args  command line arguments
      */
 
-   public static void main(String[] args)
-   {
-       if (args.length != 2) {
-	   usage();
-	   System.exit(1);
-       }
+    public static void main(String[] args)
+    {
+	if (args.length != 2) {
+	    usage();
+	    System.exit(1);
+	}
        
-       String whichPicture = args[0]; // first command line arg is 1, 2, 3
-       String outputfileName = args[1]; // second command line arg is which pic
+	String whichPicture = args[0]; // first command line arg is 1, 2, 3
+	String outputfileName = args[1]; // second command line arg is which pic
        
-       final int WIDTH = 640;
-       final int HEIGHT = 480;
+	final int WIDTH = 640;
+	final int HEIGHT = 480;
        
-       // create a new image
-       // TYPE_INT_ARGB is "RGB image" with transparency (A = alpha channel)
+	// create a new image
+	// TYPE_INT_ARGB is "RGB image" with transparency (A = alpha channel)
        
        BufferedImage bi =
 	   new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
@@ -75,9 +75,9 @@ public class WritePictureToFile
 	   System.out.println("I created " + fullFileName); // tell the user
        } catch (IOException e) {
 	   System.err.println("Sorry, an error occurred--I could not create "
-			      + fullFileName 
-			      +"\n The error was: "
+			            + fullFileName 
+			            +"\n The error was: "
 			      + e.toString());
-     }              
-   }
+       }              
+    }
 }

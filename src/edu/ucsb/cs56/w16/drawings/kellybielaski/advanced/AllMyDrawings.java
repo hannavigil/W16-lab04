@@ -23,7 +23,7 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	Bear b1= new Bear(100,100, 70);
-	g2.setColor(Color.CYAN); g2.draw(b1);	
+	g2.setColor(Color.CYAN); g2.draw(b1);
 	
 	// Make a black bear that's half the size, 
 	// and moved over 200 pixels in x direction
@@ -52,7 +52,7 @@ public class AllMyDrawings
 	//Draw two Smiling Bears
         Stroke inbetween = new BasicStroke (3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);   
 	g2.setStroke(inbetween);
-	g2.setColor(new Color(0xFFD12A));	
+	g2.setColor(new Color(0xFFD12A));
 	SmilingBear sb1 = new SmilingBear(375,40,120,60);
 	
 	SmilingBear sb2 = new SmilingBear(425,350,40,30);
@@ -76,55 +76,55 @@ public class AllMyDrawings
     public static void drawPicture2(Graphics2D g2) {
 	//Draw some bears of different colors
 	
-    SmilingBear b2= new SmilingBear(20,40,35,60);
-    Shape sm1 = ShapeTransforms.rotatedCopyOf(b2, Math.PI);
-    g2.setColor(new Color(0x9E4B40)); g2.draw(sm1);
-		
-    Bear largeb = new Bear(100,50,225);
-    g2.setColor(new Color(0xFFCBA4));
-    Stroke small = new BasicStroke (3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);   
-    g2.setStroke(small);
-    g2.draw(largeb);
+	SmilingBear b2= new SmilingBear(20,40,35,60);
+	Shape sm1 = ShapeTransforms.rotatedCopyOf(b2, Math.PI);
+	g2.setColor(new Color(0x9E4B40)); g2.draw(sm1);
 	
-    SmilingBear smallhappy = new SmilingBear(20,150,40,70);   
-    g2.setStroke(small);
-    g2.setColor(new Color(0xE97451));   //g2.draw(smallhappy);
+	Bear largeb = new Bear(100,50,225);
+	g2.setColor(new Color(0xFFCBA4));
+	Stroke small = new BasicStroke (3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);   
+	g2.setStroke(small);
+	g2.draw(largeb);
+	
+	SmilingBear smallhappy = new SmilingBear(20,150,40,70);   
+	g2.setStroke(small);
+	g2.setColor(new Color(0xE97451));   //g2.draw(smallhappy);
     
-    SmilingBear notveryhappy = new SmilingBear(300,150,130,30);
-    Stroke large = new BasicStroke (6.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);   
-    g2.setStroke(large);
-    Shape sm3 = ShapeTransforms.rotatedCopyOf(notveryhappy, Math.PI/2.0);
-    g2.setColor(new Color(0xD99A6C)); g2.draw(sm3);
+	SmilingBear notveryhappy = new SmilingBear(300,150,130,30);
+	Stroke large = new BasicStroke (6.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);   
+	g2.setStroke(large);
+	Shape sm3 = ShapeTransforms.rotatedCopyOf(notveryhappy, Math.PI/2.0);
+	g2.setColor(new Color(0xD99A6C)); g2.draw(sm3);
 	
-    // Rotate the second bear 45 degrees around its center.
-    Shape sm4 = ShapeTransforms.rotatedCopyOf(smallhappy, Math.PI/4.0);
+	// Rotate the second bear 45 degrees around its center.
+	Shape sm4 = ShapeTransforms.rotatedCopyOf(smallhappy, Math.PI/4.0);
 	
-    g2.draw(sm4);
+	g2.draw(sm4);
 	
-    // SIGN/LABEL
-    Stroke orig=g2.getStroke();
-    g2.setStroke(orig);
-    g2.setColor(Color.BLACK); 
-    g2.drawString("A bunch of ethnically diverse, rotated bears", 20,20);
-}
+	// SIGN/LABEL
+	Stroke orig=g2.getStroke();
+	g2.setStroke(orig);
+	g2.setColor(Color.BLACK); 
+	g2.drawString("A bunch of ethnically diverse, rotated bears", 20,20);
+    }
     
-/** Draw a different picture with some bears
- */
+    /** Draw a different picture with some bears
+     */
     
-public static void drawPicture3(Graphics2D g2) {
+    public static void drawPicture3(Graphics2D g2) {
 	
-    // label the drawing
+	// label the drawing
 	
-    g2.drawString("Two Christmas Bears by Phill Conrad", 20,20);
+	g2.drawString("Two Christmas Bears by Phill Conrad", 20,20);
 	
 	
-    // Draw some bears
+	// Draw some bears
 	
-    Bear large = new Bear(100,50,200);
-    SmilingBear small = new SmilingBear(20,300,40,30);
+	Bear large = new Bear(100,50,200);
+	SmilingBear small = new SmilingBear(20,300,40,30);
 	
-    g2.setColor(Color.RED);     g2.draw(large);
-    g2.setColor(Color.GREEN);   g2.draw(small);
+	g2.setColor(Color.RED);     g2.draw(large);
+	g2.setColor(Color.GREEN);   g2.draw(small);
 	
-}       
+    }       
 }
