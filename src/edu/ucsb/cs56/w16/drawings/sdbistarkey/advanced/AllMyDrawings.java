@@ -50,15 +50,15 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(sp2); 
 
-	/*
-	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	// Draw two SmartPhones with Backgrounds
 	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
-	*/
+	SmartPhoneWithBackground spbg1 = new SmartPhoneWithBackground(50,350,40,75, 5);
+	SmartPhoneWithBackground spbg2 = new SmartPhoneWithBackground(200,350,200,100, 10);
+	
+	g2.draw(spbg1);
+	g2.setColor(new Color(0x8F00FF)); g2.draw(spbg2);
+	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
