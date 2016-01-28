@@ -5,7 +5,6 @@ import java.awt.Shape; // general class for shapes
 import java.awt.Color; // class for Colors
 import java.awt.Stroke;
 import java.awt.BasicStroke;
-
 import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
@@ -23,65 +22,62 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	SmartPhone sp1 = new SmartPhone(100,250,50,75,5);
-	g2.setColor(Color.CYAN); g2.draw(sp1);
+	SmartPhone sp1 = new SmartPhone(200,350,50,75);
+	g2.setColor(Color.MAGENTA); g2.draw(sp1);
 	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
+	// Make a green phone that's .75 the size, 
+	// and moved over 200 pixels in x direction
 	
-	Shape sp2 = ShapeTransforms.scaledCopyOfLL(sp1,0.5,0.5);
-	sp2 = ShapeTransforms.translatedCopyOf(sp2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(sp2);
+	Shape sp2 = ShapeTransforms.scaledCopyOfLL(sp1,0.75,0.75);
+	sp2 = ShapeTransforms.translatedCopyOf(sp2,200,0);
+	g2.setColor(Color.GREEN); g2.draw(sp2);
 	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
-	sp2 = ShapeTransforms.scaledCopyOfLL(sp2,4,4);
-	sp2 = ShapeTransforms.translatedCopyOf(sp2,150,0);
+	// Here's a phone that's 2x as big (1.5x the original)
+	// and moved 200 pixels up.
+	sp2 = ShapeTransforms.scaledCopyOfLL(sp2,2,2);
+	sp2 = ShapeTransforms.translatedCopyOf(sp2,0,-200);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
-	
+
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
-	g2.setColor(new Color(0x002FA7)); 
+	g2.setColor(Color.BLACK); 
 	g2.draw(sp2); 
 
 	
 	// Draw two SmartPhones with Backgrounds
 	
-	SmartPhoneWithBackground spbg1 = new SmartPhoneWithBackground(50,350,40,75, 5);
-	SmartPhoneWithBackground spbg2 = new SmartPhoneWithBackground(200,350,200,100, 10);
+	SmartPhoneWithBackground spbg1 = new SmartPhoneWithBackground(50,50,40,75);
+	SmartPhoneWithBackground spbg2 = new SmartPhoneWithBackground(90,250,100,200);
 	
 	g2.draw(spbg1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(spbg2);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
 	g2.setStroke(orig);
+        
 	g2.setColor(Color.BLACK);
 	g2.drawString("A few smart phones by Skyler Bistarkey-Rez", 20,20);
     }
     
     
-    /** Draw a picture with a few houses and coffee cups
-     */
+    /** Draw a picture with a few smartphones */
     public static void drawPicture2(Graphics2D g2) {
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	SmartPhoneWithBackground sp1 =
+	    new SmartPhoneWithBackground(100, 400, 100, 200);
+        Shape sp2 =
+	    ShapeTransforms.translatedCopyOf(sp1, 0, -200);
+	Shape sp3 =
+	    ShapeTransforms.rotatedCopyOf(sp2, Math.PI/2.0);
+	sp3 = ShapeTransforms.translatedCopyOf(sp3, 0, -150);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
+	g2.setColor(Color.RED);     g2.draw(sp1);
+	g2.setColor(Color.GREEN);   g2.draw(sp2);
+	g2.setColor(Color.BLUE);    g2.draw(sp3);
+	g2.setColor(Color.MAGENTA);
 	
 	House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);

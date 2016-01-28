@@ -27,9 +27,8 @@ public class SmartPhone extends GeneralPathWrapper implements Shape
        @param y y coord of lower left corner of smart phone
        @param width width of the smartphone
        @param height height of smartphone
-       @param radius radius of the home button
     */
-    public SmartPhone(double x, double y, double width, double height, double radius)
+    public SmartPhone(double x, double y, double width, double height)
     {
 	
         // Rather than having to scale at the end, we can just
@@ -42,8 +41,9 @@ public class SmartPhone extends GeneralPathWrapper implements Shape
 	double innerScreenY = 10 + y;
 	double innerScreenWidth = width - 20;
 	double innerScreenHeight = height - 20;
-	double homeButtonX = (x + width/2.0 - radius/2.0);
-	double homeButtonY = (y + (height + innerScreenHeight)/2.0 + radius/2.0);
+	double w=(width/9.0);
+	double homeButtonX = (x + w*4);
+	double homeButtonY = (y + height - 10);
 
 	
         // Make the body of the phone
@@ -58,7 +58,7 @@ public class SmartPhone extends GeneralPathWrapper implements Shape
 				   innerScreenWidth, innerScreenHeight);
 
 	Ellipse2D.Double homeButton =
-	    new Ellipse2D.Double(homeButtonX, homeButtonY, radius, radius);
+	    new Ellipse2D.Double(homeButtonX, homeButtonY, w, 10.0);
 	
 	
         // put the whole phone together
