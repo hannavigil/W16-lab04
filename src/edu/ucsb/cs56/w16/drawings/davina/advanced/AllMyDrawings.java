@@ -23,7 +23,7 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	House h1 = new House(100,250,50,75);
+	/*House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
@@ -63,6 +63,11 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A few houses by Phill Conrad", 20,20);
+	*/
+
+        Desk d1 = new Desk(300,300,200,100);
+        g2.setColor(Color.CYAN); g2.draw(d1);
+        
     }
     
     
