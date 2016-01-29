@@ -53,7 +53,7 @@ public class AllMyDrawings
 	// Draw two houses with Windows
 	
         PigWithBody pb1 = new PigWithBody(50,350,40);
-        PigWithBody pb2 = new PigWithBody(200,350,200);
+        PigWithBody pb2 = new PigWithBody(200,350,80);
 	
         g2.draw(pb1);
         g2.setColor(new Color(0x8F00FF)); g2.draw(pb2);
@@ -72,7 +72,7 @@ public class AllMyDrawings
 	
 	// Draw some coffee cups.
 	
-        Pig large = new Pig(100,50,225);
+        Pig large = new Pig(100,50,100);
         Pig smallCC = new Pig(20,50,40);
         Pig tallSkinny = new Pig(20,150,20);
         Pig shortFat = new Pig(20,250,40);
@@ -111,7 +111,7 @@ public class AllMyDrawings
 	// Draw two houses with Windows
 	
         PigWithBody pb1 = new PigWithBody(50,350,40);
-        PigWithBody pb2 = new PigWithBody(200,350,200);
+        PigWithBody pb2 = new PigWithBody(200,350,70);
 	
         g2.draw(pb1);
 	g2.setColor(new Color(0x8F00FF)); 
