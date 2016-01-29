@@ -23,7 +23,7 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	House h1 = new House(100,250,50,75);
+	Lightbulb h1 = new Lightbulb(100,250,50);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
@@ -52,11 +52,6 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
@@ -72,10 +67,10 @@ public class AllMyDrawings
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Lightbulb large = new Lightbulb(100,50,225);
+	Lightbulb smallCC = new Lightbulb(20,50,40);
+	Lightbulb tallSkinny = new Lightbulb(20,150,20);
+	Lightbulb shortFat = new Lightbulb(20,250,40);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
