@@ -10,7 +10,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
 /**
-   A vector drawing of a house that implements
+   A vector drawing of a desk that implements
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
@@ -21,7 +21,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 public class Desk extends GeneralPathWrapper implements Shape
 {
     /**
-       Constructor
+       Constructor for a Desk object
        
        @param x x coord of lower left corner of desk
        @param y y coord of lower left corner of desk
@@ -46,9 +46,11 @@ public class Desk extends GeneralPathWrapper implements Shape
             new Line2D.Double (x, y, x+width, y);
 
         //Make 3 drawers 1/3 the size of the width of the desk
-        double drawerX = x + ((2*width)/3);
+        //Since there is 3 of them each is 1/3 the height of the desk
+        //On the right side of the desk
         double drawerWidth = width/3;
         double drawerHeight = height/3;
+        double drawerX = x + (width - drawerWidth);
         double topDrawerY = y;
         double middleDrawerY = topDrawerY + drawerHeight;
         double bottomDrawerY = middleDrawerY + drawerHeight;

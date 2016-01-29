@@ -66,7 +66,7 @@ public class AllMyDrawings
 	*/
 
         Desk d1 = new Desk(300,300,200,100);
-        g2.setColor(Color.CYAN); g2.draw(d1);
+        g2.setColor(Color.BLACK); g2.draw(d1);
         
     }
     
@@ -75,6 +75,7 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 	
+	/*
 	// Draw some coffee cups.
 	
 	CoffeeCup large = new CoffeeCup(100,50,225,150);
@@ -131,6 +132,10 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	*/
+	    Cubicle c1 = new Cubicle(50,50,200,100,100);
+        g2.setColor(Color.RED); g2.draw(c1);
+
     }
     
     /** Draw a different picture with a few houses and coffee cups
