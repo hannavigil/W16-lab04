@@ -12,13 +12,15 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
+ * @author Davina Zamanzadeh
  * @version for UCSB CS56, W16 
  */
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few desks and cubicles
+     * all floating around/balancing on/teetering off
+     * each other.
      */
     
     public static void drawPicture1(Graphics2D g2) {
@@ -57,74 +59,55 @@ public class AllMyDrawings
     }
     
     
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture of a waves of cubicles (in size) that alternate color
+     * according to the rainbow.
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	/*
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
-	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
-	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	
-	// We'll draw this with a thicker stroke
-	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
-	
-	Stroke orig=g2.getStroke();
-	g2.setStroke(thick);
-	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); 
-	
-	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
-	
-	g2.draw(hw3);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
-	g2.setStroke(orig);
-	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
-	*/
-	    Cubicle c1 = new Cubicle(50,50,200,100,100);
+	    //Red -> Orange -> Yellow -> Green -> Blue -> Purple -> Pink
+	    //It scales down by .8 each time until it hits the middle (c4)
+	    //and then scales up by 1.25. The stroke continuously decreases
+	    Cubicle c1 = new Cubicle(0,30,200,200,200);
+        g2.setStroke(new BasicStroke(3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
         g2.setColor(Color.RED); g2.draw(c1);
+
+        Shape c2 = ShapeTransforms.scaledCopyOfLL(c1,0.8,0.8);
+        c2 = ShapeTransforms.translatedCopyOf(c2,203,2);
+        g2.setStroke(new BasicStroke(2.5f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.ORANGE); g2.draw(c2);
+
+        Shape c3 = ShapeTransforms.scaledCopyOfLL(c2,0.8,0.8);
+        c3 = ShapeTransforms.translatedCopyOf(c3,163,2);
+        g2.setStroke(new BasicStroke(2.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.YELLOW); g2.draw(c3);
+
+        Shape c4 = ShapeTransforms.scaledCopyOfLL(c3,0.8,0.8);
+        c4 = ShapeTransforms.translatedCopyOf(c4,133,2);
+        g2.setStroke(new BasicStroke(1.5f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.GREEN); g2.draw(c4);
+
+        Shape c5 = ShapeTransforms.scaledCopyOfLL(c4,1.25,1.25);
+        c5 = ShapeTransforms.translatedCopyOf(c5,103,2);
+        g2.setStroke(new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.BLUE); g2.draw(c5);
+
+        Shape c6 = ShapeTransforms.scaledCopyOfLL(c5,1.25,1.25);
+        c6 = ShapeTransforms.translatedCopyOf(c6,128,2);
+        g2.setStroke(new BasicStroke(0.5f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(new Color(76,0,153)); g2.draw(c6); //Purple
+
+        Shape c7 = ShapeTransforms.scaledCopyOfLL(c6,1.25,1.25);
+        c7 = ShapeTransforms.translatedCopyOf(c7,162,2);
+        g2.setStroke(new BasicStroke(0.3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.PINK); g2.draw(c7); 
+
+        //Label my drawing
+        g2.setColor(Color.BLACK); 
+        g2.drawString("A rainbow wave of cubicles by Davina Zamanzadeh", 20,20);
 
     }
     
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a some desks and cubicles togethers.
      */
     
     public static void drawPicture3(Graphics2D g2) {
