@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.simple;
+package edu.ucsb.cs56.w16.drawings.beserchris.simple;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -66,7 +66,7 @@ public class PictureComponent extends JComponent
 	
         final double bottomRadius = 20;
         final double middleRadius = 15;
-        final double topRadius = 10;
+	final double topRadius = 10;
         final double snowManCenterBottomX = 400;
         final double snowManCenterBottomY = 300;
 	
@@ -88,6 +88,14 @@ public class PictureComponent extends JComponent
 	     );
         g2.draw(snowManMiddleCircle);
 	
+	Circle snowManTopCircle = 
+	    new Circle
+	    (
+	     snowManCenterBottomX,
+	     snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius,
+	     topRadius
+	     );
+	g2.draw(snowManTopCircle);
         // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
 
 
@@ -95,7 +103,7 @@ public class PictureComponent extends JComponent
         // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	// @@@ 20, 20 are suggested coordinates, but you may change them
 
-        // g2.drawString("Description and your name go here", 20,20);
+	g2.drawString("Christopher Beser's drawing of a snowman", 20,20);
 	
     }
 }
