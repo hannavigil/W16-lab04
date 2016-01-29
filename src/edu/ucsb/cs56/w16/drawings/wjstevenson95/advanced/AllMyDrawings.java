@@ -85,7 +85,7 @@ public class AllMyDrawings
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's arectangle that's 4x as big (2x the original)
+	// Here's a rectangle that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
@@ -117,7 +117,7 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Keyboards a nd a rRectangle by William Stevenson", 20,20);
+	g2.drawString("A bunch of Keyboards and a Rectangle by William Stevenson", 20,20);
     }
     
     /** Draw a different picture with 3 different colored Keyboards
