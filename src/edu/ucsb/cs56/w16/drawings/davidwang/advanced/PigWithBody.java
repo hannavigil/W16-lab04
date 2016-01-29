@@ -5,7 +5,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 
 /**
-   A Pig
+   A Pig With Body
 
    @author David Wang
    @version for CS56, W16, UCSB
@@ -14,7 +14,7 @@ import java.awt.geom.Line2D;
 public class PigWithBody extends Pig implements Shape
 {
     /**
-     * Constructor for objects of class Pig
+     * Constructor for objects of class PigWithBody
      */
     public PigWithBody(double x, double y, double radius)
     {

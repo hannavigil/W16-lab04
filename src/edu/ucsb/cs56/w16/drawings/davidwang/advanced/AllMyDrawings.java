@@ -26,14 +26,14 @@ public class AllMyDrawings
         Pig p1 = new Pig(100,250,50);
         g2.setColor(Color.CYAN); g2.draw(p1);
 	
-	// Make a black house that's half the size, 
+        // Make a black pig that's half the size,
 	// and moved over 150 pixels in x direction
 	
         Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
         p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
         g2.setColor(Color.BLACK); g2.draw(p2);
 	
-	// Here's a house that's 4x as big (2x the original)
+        // Here's a pig that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
         p2 = ShapeTransforms.scaledCopyOfLL(p2,4,4);
         p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
@@ -50,15 +50,13 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
         g2.draw(p2);
 	
-	// Draw two houses with Windows
+        // Draw two pigs with bodies
 	
         PigWithBody pb1 = new PigWithBody(50,350,40);
         PigWithBody pb2 = new PigWithBody(200,350,80);
 	
         g2.draw(pb1);
         g2.setColor(new Color(0x8F00FF)); g2.draw(pb2);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
@@ -70,7 +68,7 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+        // Draw some pigs.
 	
         Pig large = new Pig(100,50,100);
         Pig smallCC = new Pig(20,50,40);
@@ -85,13 +83,13 @@ public class AllMyDrawings
         Pig p1 = new Pig(100,250,50);
         g2.setColor(Color.CYAN); g2.draw(p1);
 	
-	// Make a black house that's half the size, 
+        // Make a black pig that's half the size,
 	// and moved over 150 pixels in x direction
         Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
         p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
         g2.setColor(Color.BLACK); g2.draw(p2);
 	
-	// Here's a house that's 4x as big (2x the original)
+        // Here's a pig that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
         p2 = ShapeTransforms.scaledCopyOfLL(p2,4,4);
         p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
@@ -108,7 +106,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
         g2.draw(p2);
 	
-	// Draw two houses with Windows
+        // Draw two pigs with bodies
 	
         PigWithBody pb1 = new PigWithBody(50,350,40);
         PigWithBody pb2 = new PigWithBody(200,350,70);
@@ -116,7 +114,7 @@ public class AllMyDrawings
         g2.draw(pb1);
 	g2.setColor(new Color(0x8F00FF)); 
 	
-	// Rotate the second house 45 degrees around its center.
+        // Rotate the second pig 45 degrees around its center.
         Shape pb3 = ShapeTransforms.rotatedCopyOf(pb2, Math.PI/4.0);
 	
         g2.draw(pb3);
@@ -136,7 +134,7 @@ public class AllMyDrawings
         g2.drawString("A bunch of pigs by David Wang", 20,20);
 	
 	
-	// Draw some coffee cups.
+        // Draw some pigs.
         Pig big = new Pig(100,100,100);
         Pig small = new Pig(50,100,20);
 	
