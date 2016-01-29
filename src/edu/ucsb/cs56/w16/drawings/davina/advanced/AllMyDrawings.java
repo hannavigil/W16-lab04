@@ -23,51 +23,37 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	/*House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
-	
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
-	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	
-	// We'll draw this with a thicker stroke
-	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
-	
-	Stroke orig=g2.getStroke();
-	g2.setStroke(thick);
-	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
-	g2.setStroke(orig);
-	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
-	*/
-
-        Desk d1 = new Desk(300,300,200,100);
+        //Make a black desk near the top left
+        Desk d1 = new Desk(50,50,200,100);
         g2.setColor(Color.BLACK); g2.draw(d1);
+
+        // We'll draw a huge magenta desk with a very thick stroke
+        // it's a little further down and to the right from the red desk
+        Stroke thick = new BasicStroke (7.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
+        Stroke orig=g2.getStroke(); //Save old stroke
+        Desk d3 = new Desk(300,200,400,528);
+        g2.setStroke(thick);
+        g2.setColor(Color.MAGENTA); g2.draw(d3);
+
+        //Make a red scaled version that's smaller
+        //moved to the rightmost edge of the magenta desk
+        //rotated to look like it's falling off
+        Shape d2 = ShapeTransforms.scaledCopyOfLL(d1,0.8,0.46);
+        d2 = ShapeTransforms.translatedCopyOf(d2,560,87);
+        d2 = ShapeTransforms.rotatedCopyOf(d2, 57);
+        g2.setStroke(orig);
+        g2.setColor(Color.RED); g2.draw(d2);
         
+        //All the desks seem to be teetering on each other
+        //Let's throw in a cyan cubicle to balance the black one
+        Cubicle c1 = new Cubicle(0,130,293,200,200);
+        g2.setStroke(new BasicStroke(3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+        g2.setColor(Color.CYAN); g2.draw(c1);
+
+        //Label my drawing
+        g2.setStroke(orig);
+        g2.setColor(Color.BLACK); 
+        g2.drawString("A few floating/balancing desks and cubicles  by Davina Zamanzadeh", 20,20);
     }
     
     
