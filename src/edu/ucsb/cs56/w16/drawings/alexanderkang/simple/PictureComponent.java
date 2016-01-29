@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.simple;
+package edu.ucsb.cs56.w16.drawings.alexanderkang.simple;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -87,7 +87,14 @@ public class PictureComponent extends JComponent
 	     middleRadius
 	     );
         g2.draw(snowManMiddleCircle);
-	
+	   
+       Circle snowManTopCircle = 
+            new Circle
+            (snowManCenterBottomX,
+              snowManCenterBottomY - bottomRadius*2 - middleRadius*2 - topRadius,  
+              topRadius
+        );
+            g2.draw(snowManTopCircle);
         // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
 
 
