@@ -41,6 +41,7 @@ public class SmartPhone extends GeneralPathWrapper implements Shape
 	double innerScreenY = 10 + y;
 	double innerScreenWidth = width - 20;
 	double innerScreenHeight = height - 20;
+	//divide the width into 9 equal segments of length w
 	double w=(width/9.0);
 	double homeButtonX = (x + w*4);
 	double homeButtonY = (y + height - 10);
