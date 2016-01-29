@@ -107,23 +107,52 @@ public class AllMyDrawings
 
     }
     
-    /** Draw a different picture with a some desks and cubicles togethers.
+    /** Draws a curve using different colored desks 
+     * by rotating the objects themselves.
      */
     
     public static void drawPicture3(Graphics2D g2) {
-	
-	// label the drawing
-	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
-	
-	
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+        //The desks scale down to the middle and scale up to the other side
+        //just like in drawPicture 2
+        //But here the desks  are rotated down and then up to form a curve
+        Desk d1 = new Desk(50,60,200,200);
+        Shape d2 = ShapeTransforms.rotatedCopyOf(d1,.8);
+        g2.setColor(Color.BLACK); g2.draw(d2);
+
+        Shape c2 = ShapeTransforms.scaledCopyOfLL(d1,0.8,0.8);
+        c2 = ShapeTransforms.translatedCopyOf(c2,153,62);
+        c2 = ShapeTransforms.rotatedCopyOf(c2,.75);
+        g2.setColor(Color.YELLOW); g2.draw(c2);
+
+        Shape c3 = ShapeTransforms.scaledCopyOfLL(c2,0.8,0.8);
+        c3 = ShapeTransforms.translatedCopyOf(c3,123,10);
+        c3 = ShapeTransforms.rotatedCopyOf(c3,-.25);
+        g2.setColor(Color.RED); g2.draw(c3);
+
+        Shape c4 = ShapeTransforms.scaledCopyOfLL(c3,0.8,0.8);
+        c4 = ShapeTransforms.translatedCopyOf(c4,133,0);
+        c4 = ShapeTransforms.rotatedCopyOf(c4,-.45);
+        g2.setColor(Color.GREEN); g2.draw(c4);
+
+        Shape c5 = ShapeTransforms.scaledCopyOfLL(c4,1.25,1.25);
+        c5 = ShapeTransforms.translatedCopyOf(c5,103,12);
+        c5 = ShapeTransforms.rotatedCopyOf(c5,-.35);
+        g2.setColor(Color.PINK); g2.draw(c5);
+
+        Shape c6 = ShapeTransforms.scaledCopyOfLL(c5,1.25,1.25);
+        c6 = ShapeTransforms.translatedCopyOf(c6,108,2);
+        c6 = ShapeTransforms.rotatedCopyOf(c6,-.35);
+        g2.setColor(Color.BLUE); g2.draw(c6); 
+
+        Shape c7 = ShapeTransforms.scaledCopyOfLL(c6,1.25,1.25);
+        c7 = ShapeTransforms.translatedCopyOf(c7,102,-80);
+        c7 = ShapeTransforms.rotatedCopyOf(c7,-.35);
+        g2.setColor(Color.MAGENTA); g2.draw(c7); 
+
+
+        // label the drawing
+        g2.setColor(Color.BLACK);
+        g2.drawString("A curve of multicolored desks (using actual objects) by Davina Zamanzadeh", 250,20);
 	
     }       
 }
