@@ -124,22 +124,26 @@ public class AllMyDrawings
         g2.drawString("A bunch of pigs and pigs with bodies", 20,20);
     }
     
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a few pigs and pigs with bodies
      */
 
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-        g2.drawString("A bunch of pigs by David Wang", 20,20);
+        g2.drawString("A bunch of pigs and pigs with bodies by David Wang", 20,20);
 	
 	
         // Draw some pigs.
         Pig big = new Pig(100,100,100);
         Pig small = new Pig(50,100,20);
+        PigWithBody bigpb = new PigWithBody(200,200,100);
+        PigWithBody smallpb = new PigWithBody(100,50,20);
 	
         g2.setColor(Color.PINK);     g2.draw(big);
         g2.setColor(Color.PINK);   g2.draw(small);
+        g2.draw(bigpb);
+        g2.draw(smallpb);
 	
     }       
 }
