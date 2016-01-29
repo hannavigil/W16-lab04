@@ -19,8 +19,8 @@ public class Cookie  extends GeneralPathWrapper implements Shape
     /**
        Constructor
        
-       @param x x coord of lower left corner of Cookie
-       @param y y coord of lower left corner of Cookie
+       @param x x coord of top left corner of Cookie
+       @param y y coord of top left corner of Cookie
        @param Radius of the Cookie
     */
     public Cookie(double x, double y, double radius)

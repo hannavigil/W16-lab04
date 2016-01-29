@@ -13,7 +13,9 @@ import java.awt.geom.Ellipse2D;
 public class ChocolateChipCookie extends Cookie implements Shape
 {
     /**
-     * Constructor for objects of class ChocolateChipCookie
+     * Constructor 
+     *
+     *
      */
     public ChocolateChipCookie(double x, double y, double radius)
     {
