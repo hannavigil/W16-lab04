@@ -11,13 +11,13 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
+ * @author Skyler Bistarkey-Rez 
  * @version for UCSB CS56, W16 
  */
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a SmartPhones 
      */
     
     public static void drawPicture1(Graphics2D g2) {
@@ -61,10 +61,11 @@ public class AllMyDrawings
     }
     
     
-    /** Draw a picture with a few smartphones */
+    /** Draw a picture with a few smartphones that spell "Hi" */
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+	//create the base smartphone, and translate/rotate the rest
+	//everything is based off sp1
 	
 	SmartPhoneWithBackground sp1 =
 	    new SmartPhoneWithBackground(100, 300, 50, 100);
@@ -88,30 +89,39 @@ public class AllMyDrawings
 	g2.setColor(Color.MAGENTA); g2.draw(sp4);
 	g2.setColor(Color.BLACK);   g2.draw(sp5);
 	g2.setColor(Color.PINK);    g2.draw(sp6);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
         
 	g2.setColor(Color.BLACK); 
 	g2.drawString("Smart Phones in the shape of \"Hi\" by Skyler Bistarkey-Rez", 20,20);
     }
     
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a rainbow S of smartphones
      */
     
     public static void drawPicture3(Graphics2D g2) {
+
+	Stroke orig=g2.getStroke();
+	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL); 
+	g2.setStroke(thick);
 	
-	// label the drawing
+        SmartPhone sp1 = new SmartPhone(200, 50, 50, 100);
+	Shape sp2 = ShapeTransforms.rotatedCopyOf(sp1, -1 * Math.PI/4.0);
+	Shape sp3 = ShapeTransforms.horizontallyFlippedCopyOf(sp2);
+	Shape sp4 = ShapeTransforms.verticallyFlippedCopyOf(sp3);
+	sp4 = ShapeTransforms.translatedCopyOf(sp4, 0, 150*Math.sqrt(2));
+	Shape sp5 = ShapeTransforms.translatedCopyOf(sp2, 0, 150*Math.sqrt(2));
+	Shape sp6 = ShapeTransforms.verticallyFlippedCopyOf(sp5);
+	sp6 = ShapeTransforms.translatedCopyOf(sp6, 0, 150*Math.sqrt(2));
+	Shape sp7 = ShapeTransforms.horizontallyFlippedCopyOf(sp6);
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
-	
-	
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	
+	g2.setColor(Color.RED);     g2.draw(sp2);
+	g2.setColor(Color.ORANGE);  g2.draw(sp3);
+	g2.setColor(Color.YELLOW);  g2.draw(sp4);
+	g2.setColor(Color.GREEN);   g2.draw(sp5);
+	g2.setColor(Color.BLUE);    g2.draw(sp6);
+	g2.setColor(Color.MAGENTA); g2.draw(sp7);
+
+	g2.setStroke(orig);
+	g2.setColor(Color.BLACK);
+	g2.drawString("A rainbow S made of SmartPhones by Skyler Bistarkey-Rez", 20,20);
     }       
 }

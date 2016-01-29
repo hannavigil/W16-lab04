@@ -21,7 +21,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 public class SmartPhone extends GeneralPathWrapper implements Shape
 {
     /**
-       Constructor
+       Constructor for objects of type SmartPhone
        
        @param x x coord of lower left corner of smart phone
        @param y y coord of lower left corner of smart phone

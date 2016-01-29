@@ -14,7 +14,12 @@ import java.awt.geom.Line2D;
 public class SmartPhoneWithBackground extends SmartPhone implements Shape
 {
     /**
-     * Constructor for objects of class CoffeeCup
+     * Constructor for objects of class SmartPhoneWithBackground
+     *
+     * @param x The x coordinate for the top left corner
+     * @param y The y coordinate for the top left corner
+     * @param width the width of the SmartPhoneWithBackground
+     * @param height the height of the SmartPhoneWithBackground
      */
     public SmartPhoneWithBackground(double x, double y, double width, double height)
     {
