@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w16.drawings.alexanderkang.advanced;
 
 import java.awt.Graphics2D;
 import java.awt.Shape; // general class for shapes
