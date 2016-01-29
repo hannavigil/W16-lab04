@@ -96,12 +96,6 @@ public class PictureComponent extends JComponent
 	     topRadius
 	     );
 	g2.draw(snowManTopCircle);
-        // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
-
-
-
-        // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	// @@@ 20, 20 are suggested coordinates, but you may change them
 
 	g2.drawString("Christopher Beser's drawing of a snowman", 20,20);
 	
