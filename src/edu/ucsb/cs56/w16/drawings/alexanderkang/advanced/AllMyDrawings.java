@@ -50,27 +50,26 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
 	
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("A few streetlights by Alex Kang", 20,20);
     }
     
     
     /** Draw a picture with a few houses and coffee cups
      */
-    public static void drawPicture2(Graphics2D g2) {
+/*    public static void drawPicture2(Graphics2D g2) {
 	
 	// Draw some coffee cups.
 	
-	Lightbulb large = new Lightbulb(100,50,225);
-	Lightbulb smallCC = new Lightbulb(20,50,40);
-	Lightbulb tallSkinny = new Lightbulb(20,150,20);
-	Lightbulb shortFat = new Lightbulb(20,250,40);
+	CoffeeCup large = new CoffeeCup(100,50,225);
+	CoffeeCup smallCC = new CoffeeCup(20,50,40);
+	CoffeeCup tallSkinny = new CoffeeCup(20,150,20);
+	CoffeeCup shortFat = new CoffeeCup(20,250,40);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
@@ -121,7 +120,7 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
-    }
+    }*/
     
     /** Draw a different picture with a few houses and coffee cups
      */
@@ -130,16 +129,17 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of streetlights by Alex kang", 20,20);
 	
 	
 	// Draw some coffee cups.
+
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	Streetlight large = new Streetlight(200,100,60,150);
+	Streetlight smallSL = new Streetlight(300,50,30,30);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.BLUE);     g2.draw(large);
+	g2.setColor(Color.ORANGE);   g2.draw(smallSL);
 	
     }       
 }

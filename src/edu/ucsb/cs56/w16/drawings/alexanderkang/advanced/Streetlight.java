@@ -3,6 +3,7 @@ import java.awt.geom.GeneralPath;
 import java.awt.Shape; 
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 
 /**
    A Streetlight
@@ -14,43 +15,35 @@ import java.awt.geom.Ellipse2D;
 public class Streetlight extends Lightbulb implements Shape
 {
     /**
-     * Constructor for objects of class CoffeeCup
+     * Constructor for objects of class streetlight
      */
     public Streetlight(double x, double y, double radius, double height)
     {
-	// construct the basic house shell
-	super(x,y,radius);
+	// construct the basic lightbulb
+	super(x+.26*radius,y+.37*radius,.5*radius);	
+
+	//construct container for lightbulb
+	Ellipse2D.Double lbContainer = new Ellipse2D.Double(x,y,radius,radius);
+
+	double fractionOfRad = 24*radius/25;
+	double bottomOfSL = y+fractionOfRad*4;
+    Line2D.Double leftLine = new Line2D.Double(x+radius/3, y+fractionOfRad, x+radius/3, bottomOfSL);
+    Line2D.Double rightLine = new Line2D.Double(x+2*radius/3, y+fractionOfRad, x+2*radius/3, bottomOfSL);
+   	Line2D.Double bottomOfBuSL = new Line2D.Double(x+radius/3, bottomOfSL, x+2*radius/3,  bottomOfSL);
+        
+
 	
 	// get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
 	
-	// Make three windows, spaced like this, where w=width/10.0;
-	// | +--+ +--+ +--+ |
-	// | |  | |  | |  | |
-	// | +--+ +--+ +--+ |
-	// |w 2w w 2w w w2 w|
-	//
-	// The top of window will be at y + 0.5*height and the
-	// height of the window is 0.25height;
 	
-	double w = 0.10 * width;
-	double winTop = y + 0.5 * height;
-	double winHt =  0.25 * height;
 	
-	Rectangle2D.Double win1 =
-	    new Rectangle2D.Double(x + w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win2 =
-	    new Rectangle2D.Double(x + 4.0*w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win3 =
-	    new Rectangle2D.Double(x + 7.0*w, winTop, 2.0 * w, winHt);
-	
-	// add the windows to the house
-	// Look up the meaning of the second parameter of append
-	// (Hint--is a method of "GeneralPath")
-	
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(win1, false);
-        wholeHouse.append(win2, false);
-        wholeHouse.append(win3, false); 
+    GeneralPath wholeStreetLight = this.get();
+    wholeStreetLight.append(lbContainer,false);
+    wholeStreetLight.append(leftLine,false);
+    wholeStreetLight.append(rightLine,false);
+    wholeStreetLight.append(bottomOfBuSL,false);
+
+
     }    
 }
