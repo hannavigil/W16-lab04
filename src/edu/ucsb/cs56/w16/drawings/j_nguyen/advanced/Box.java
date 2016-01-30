@@ -10,7 +10,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
 /**
-   A vector drawing of a house that implements
+   A vector drawing of a box that implements
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
@@ -23,10 +23,10 @@ public class Box extends GeneralPathWrapper implements Shape
     /**
        Constructor
        
-       @param x x coord of lower left corner of box
-       @param y y coord of lower left corner of box
+       @param x x coord of upper left corner of box
+       @param y y coord of upper left corner of box
        @param width width of the box
-       @param height of box
+       @param height height of box
     */
     public Box(double x, double y, double width, double height)
     {
@@ -38,36 +38,8 @@ public class Box extends GeneralPathWrapper implements Shape
         // way.
 
 	Rectangle2D.Double singleBox = new Rectangle2D.Double(x, y, width, height);
+	
 	GeneralPath wholeBox = this.get();
 	wholeBox.append(singleBox, false);
-	
-	    /*double firstStoryHeight = .75 * height;
-        double roofHeight = height - firstStoryHeight;
-        
-        double firstStoryUpperLeftY = y + roofHeight;
-        
-        // Make the first story
-        
-        Rectangle2D.Double firstStory = 
-            new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-				   width, firstStoryHeight);
-	
-        // make the roof.   Remember that y goes DOWN the page,
-        // so we ADD to y to get a "lower" value on the screen
-        
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
-	
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
-	
-        // put the whole house together
-	
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false);    */
     }
 }

@@ -4,10 +4,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D.Double;
+
 /**
-   A component that draws a Picture by Phill Conrad
+   A component that draws a Picture by Justin Nguyen
    
-   @author Phill Conrad (original drawing)
+   @author Justin Nguyen
    @version CS56, W16, UCSB
 */
 
