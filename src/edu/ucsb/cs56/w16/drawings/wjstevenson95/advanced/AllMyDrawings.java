@@ -71,7 +71,7 @@ public class AllMyDrawings
 	// Draw some keyboards
 	
 	Keyboard k1 = new Keyboard(100, 250, 300, 75);
-	Keyboard k2 = new Keyboard(20, 20, 100, 25);
+	Keyboard k2 = new Keyboard(20, 20, 200, 25);
 	
 	g2.setColor(Color.RED);     g2.draw(k1);
 	g2.setColor(Color.GREEN);   g2.draw(k2);
@@ -104,8 +104,8 @@ public class AllMyDrawings
 	
 	// Draw two keyboards
 	
-	Keyboard k3 = new Keyboard(50,50,80,40);
-	Keyboard k4 = new Keyboard(200,350,200,100);
+	Keyboard k3 = new Keyboard(50,50,215,40);
+	Keyboard k4 = new Keyboard(200,350,265,50);
 	
 	g2.draw(k3);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -132,9 +132,9 @@ public class AllMyDrawings
 	
 	// Draw some coffee cups.
 	
-	Keyboard k1 = new Keyboard(50,50,80,40);
-	Keyboard k2 = new Keyboard(125,125,80,40);
-	Keyboard k3 = new Keyboard(250,250,80,40);
+	Keyboard k1 = new Keyboard(50,50,215,40);
+	Keyboard k2 = new Keyboard(125,125,200,40);
+	Keyboard k3 = new Keyboard(250,250,185,40);
 	
 	g2.setColor(Color.RED);     g2.draw(k1);
 	g2.setColor(Color.GREEN);   g2.draw(k2);

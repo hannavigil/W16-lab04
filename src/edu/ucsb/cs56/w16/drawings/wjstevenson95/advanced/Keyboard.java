@@ -19,20 +19,21 @@ public class Keyboard extends Rectangle implements Shape
     public Keyboard(double x, double y, double width, double height)
     {
 	//construct the base rectangle
-	super(x,y,width,height);
+	super(x,y,width + 75,height);
 	
 	// get the GeneralPath that we are going to append to
 	GeneralPath gp = this.get();
 
 	// Make 1 smaller rectangle to lay on top of the shell
+	// The smaller rectangle width depends on size of outer rectangle
 	// Make 7 regular white keys (small inverted rectangles)
 	// Make 5 black keys (smaller inverted rectangles)
 
-	double w = width * 0.93;
+	double w = (width + 75) * 0.92;
 	double h = height - 10;
 	double w1 = w / 7;
 	double w2 = w / 14;
-	double x1 = x + 10;
+	double x1 = x + (0.04 * (width + 75));
 	double x2 = x + 20;
 	double y1 = y + 10;
 	
