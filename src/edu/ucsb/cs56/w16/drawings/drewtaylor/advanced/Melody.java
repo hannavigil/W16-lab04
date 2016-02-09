@@ -17,25 +17,25 @@ public class Melody extends Measure implements Shape
     /**
      * Constructor for objects of class Melody
      */
-    public Melody(double x, double y, double width, double height)
+    public Melody(double x, double y, double width, double height, int note1, int note2, int note3)
     {
 	// construct the basic measure shell
 	super(x,y,width,height);
 	
 	// create note 1
-	Circle noteCircle1 = new Circle(x+width*0.25,y+height*0.75,height*0.125);
+	Circle noteCircle1 = new Circle(x+width*0.25,y+height*note1*0.125,height*0.125);
         Line2D.Double line1 =
-            new Line2D.Double(x+width*0.25+height*0.125,y+height*.75,x+width*0.25+height*0.125,y+height*.75-height);
+            new Line2D.Double(x+width*0.25+height*0.125,y+height*note1*0.125,x+width*0.25+height*0.125,y+height*note1*0.125-height);
 	
 	// create note 2
-	Circle noteCircle2 = new Circle(x+width*0.5,y+height*0.25,height*0.125);
+	Circle noteCircle2 = new Circle(x+width*0.5,y+height*note2*0.125,height*0.125);
         Line2D.Double line2 =
-            new Line2D.Double(x+width*0.5+height*0.125,y+height*.25,x+width*0.5+height*0.125,y+height*.25-height);	
+            new Line2D.Double(x+width*0.5+height*0.125,y+height*note2*0.125,x+width*0.5+height*0.125,y+height*note2*0.125-height);	
 
 	// create note 3
-	Circle noteCircle3 = new Circle(x+width*0.75,y+height*.5,height*0.125);
+	Circle noteCircle3 = new Circle(x+width*0.75,y+height*note3*0.125,height*0.125);
         Line2D.Double line3 =
-            new Line2D.Double(x+width*0.75+height*0.125,y+height*.5,x+width*0.75+height*0.125,y+height*.5-height);
+            new Line2D.Double(x+width*0.75+height*0.125,y+height*note3*0.125,x+width*0.75+height*0.125,y+height*note3*0.125-height);
 
         GeneralPath wholeMelody = this.get();
         wholeMelody.append(noteCircle1, false);
