@@ -19,6 +19,11 @@ public class AnimatedPictureViewer {
 
     Thread anim;
 
+    private int x = 100;
+    private int y = 100;
+
+    private int dx = 5;
+
     public static void main(String[] args) {
 	new AnimatedPictureViewer().go();
     }
@@ -33,11 +38,14 @@ public class AnimatedPictureViewer {
 
 	frame.getContentPane().addMouseListener(new MouseAdapter() {
 		public void mouseEntered(MouseEvent e) {
+		    System.out.println("mouse entered");
 		    anim = new Animation();
 		    anim.start();
 		}
 
 		public void mouseExited(MouseEvent e) {
+		    System.out.println("Mouse exited");
+		    // Kill the animation thread
 		    anim.interrupt();
 		    while(anim.isAlive()) {}
 		    anim = null;
@@ -57,11 +65,8 @@ public class AnimatedPictureViewer {
 
 	    // Draw keyboard
 	    g2.setColor(Color.BLUE);
-	    Keyboard k1 = new Keyboard(100,100,200,50);
+	    Keyboard k1 = new Keyboard(x,y,200,50);
 	    g2.draw(k1);
-
-	    // Rotate the keyboard
-	    g2.rotate(Math.toRadians(90));
 	}
     }
 
@@ -69,6 +74,12 @@ public class AnimatedPictureViewer {
 	public void run() {
 	    try {
 		while(true) {
+		    // Bounce off the walls
+		    
+		    if(x >= 400) { dx = -5; }
+		    if(x <= 50) { dx = 5; }
+
+		    x += dx;
 		    panel.repaint();
 		    Thread.sleep(50);
 		}
