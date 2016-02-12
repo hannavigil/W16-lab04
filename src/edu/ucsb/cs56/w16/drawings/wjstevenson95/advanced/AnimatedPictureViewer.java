@@ -18,7 +18,7 @@ public class AnimatedPictureViewer {
 
     private int x = 100;
     private int y = 100;
-    private int color 0 ;
+    private int color = 1;
     
     private DrawPanel panel = new DrawPanel();
     
@@ -67,7 +67,7 @@ public class AnimatedPictureViewer {
 	    g2.setColor(Color.WHITE);
 	    g2.fillRect(0,0,this.getWidth(),this.getHeight());
 
-	    // Draw keyboard
+	    // Draw keyboard and set color
 	    Keyboard keyboard = new Keyboard(x,y,300,75);
 	    if(color == 0) {
 		g2.setColor(Color.BLUE);
@@ -86,11 +86,12 @@ public class AnimatedPictureViewer {
 	public void run() {
 	    try {
 		while(true) {
-		    // Bounce off the walls
+		    // Bounce off the walls and change color
 		    
 		    if(x >= 400) {
 			dx = -5;
 			color = 0;
+		    }
 		    if(x <= 50) {
 			dx = 5;
 			color = 1;
@@ -99,6 +100,7 @@ public class AnimatedPictureViewer {
 		    x += dx;
 		    y += dx;
 		    panel.repaint();
+		    Toolkit.getDefaultToolkit().sync();
 		    Thread.sleep(50);
 		}
 	    } catch(Exception ex) {
