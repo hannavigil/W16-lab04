@@ -16,16 +16,25 @@ public class AnimatedPictureViewer {
     private Cubicle cubicle;
     private AnimationPanel panel;
     //Initialization data
-    private static final double initXPos = 20;
-    private static final double initYPos = 83;
-    private static final double initDeskWidth = 200;
-    private static final double initDeskHeight = 150;
-    private static final double initCubicleWallHeight = 150;
+    private static final double initXPos = 550;
+    private static final double initYPos = 100;
+    private static final double initDeskWidth = 30;
+    private static final double initDeskHeight = 22.5;
+    private static final double initCubicleWallHeight = 22.5;
+    private static final double finalXPos = 20;
+    private static final double finalYPos = 20;
+    private static final double finalDeskWidth = 200;
+    private static final double finalDeskHeight = 100;
+    private static final double finalCubicleWallHeight = 100;
+    //Data about the cubicle that gets updated as the animation goes
     private static float hue;
     private static float saturation;
     private double currentX;
     private double currentY;
-    
+    private double currentWidth;
+    private double currentHeight;
+    private double currentCubicleWallHeight;
+    boolean oppositeDirection = false; //This keeps track of the direction of animation
 
     /** Constructor that sets up the cubicle to be animated,
      * and some necessary information for animation (such as (x,y)
@@ -37,7 +46,10 @@ public class AnimatedPictureViewer {
         panel = new AnimationPanel();
         currentX = initXPos;
         currentY = initYPos;
-        hue = 344.25f;
+        currentWidth = initDeskWidth;
+        currentHeight = initDeskHeight;
+        currentCubicleWallHeight = initCubicleWallHeight;
+        hue = 54.1f; //Give it an initial color similar to magenta
     }
 
     /**Sets the frame up (creates it, adds the necessary parts,
@@ -46,6 +58,11 @@ public class AnimatedPictureViewer {
     public void go() {
         JFrame frame = new JFrame();
         frame.getContentPane().add(panel); //Add panel to frame (the panel will take care of the internal components)
+        frame.setSize(640,480); 
+        frame.setTitle("Davina's First Animated Drawing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+        frame.setVisible(true);
+
         frame.getContentPane().addMouseListener(new MouseAdapter(){
             //When the mouse enters the frame we start the animation
             public void mouseEntered(MouseEvent e){
@@ -60,10 +77,6 @@ public class AnimatedPictureViewer {
                 animate = null;
             }
         });
-        frame.setSize(640,480); // Set the size of picture
-        frame.setTitle("Davina's First Animated Drawing");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Enable closing window
-        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
@@ -82,11 +95,11 @@ public class AnimatedPictureViewer {
             Graphics2D g2d = (Graphics2D) g;
             g2d.setColor(Color.white);
             g2d.fillRect(0,0,this.getWidth(),this.getHeight());
+            
 
             g2d.setColor(this.nextColor());
-            Cubicle newCubicle = new Cubicle(currentX, currentY, initDeskWidth, initDeskHeight, initCubicleWallHeight);
+            Cubicle newCubicle = new Cubicle(currentX, currentY, currentWidth, currentHeight, currentCubicleWallHeight);
             g2d.draw(newCubicle);
-            //Do stuff with currentX and Y to animate it
         }
 
         /**Helper function that generates the next color in the sequence
@@ -102,13 +115,16 @@ public class AnimatedPictureViewer {
      * component.
      */
     class Animate extends Thread{
-        /**Runs the animation with a set delay; knows how to deal
-         * with mouse interruptions.
+
+        /**Override the Thread method run()
+         * in order to properly animate the
+         * cubicle.
          */
-        public void runAnimation(){
+        public void run(){
             try{
                 while (true){
-                    display(20);
+                    display(1);
+
                 }
             } catch(Exception ex){
                 if (ex instanceof InterruptedException) {
@@ -124,6 +140,23 @@ public class AnimatedPictureViewer {
          * @param delay an integer that is the desired delay you want to slow down your animation with
          */
         private void display(int delay) throws InterruptedException{
+            if(currentX < finalXPos) { oppositeDirection = true; }
+            else if(currentX > initXPos) { oppositeDirection = false; }
+            if(oppositeDirection) {
+                currentX++;
+                currentY -= .2;
+                currentWidth--;
+                currentHeight -= .2;
+                currentCubicleWallHeight -= .2;
+            }
+            else if ((!oppositeDirection) || (currentX > initXPos)) { 
+                currentX--;
+                currentY += .2;
+                currentWidth++;
+                currentHeight += .2;
+                currentCubicleWallHeight += .2;
+            }
+
             panel.repaint();
             if(Thread.currentThread().interrupted())
                 throw(new InterruptedException());
