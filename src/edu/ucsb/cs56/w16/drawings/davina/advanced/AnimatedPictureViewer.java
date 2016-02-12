@@ -10,7 +10,7 @@ import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Font;
 
-/** A class to see an animated cubicle inside a GUI window.
+/** A class to see an animated cubicle bounce inside a GUI window.
    @author Davina Zamanzadeh
    @version CS56, W16
  */
@@ -18,6 +18,7 @@ public class AnimatedPictureViewer {
     private Thread animate;
     private Cubicle cubicle;
     private AnimationPanel panel;
+    private boolean displayText;
     //Initialization data
     private static final double initXPos = 550;
     private static final double initYPos = 100;
@@ -38,10 +39,8 @@ public class AnimatedPictureViewer {
     private double currentHeight;
     private double currentCubicleWallHeight;
     private float lineThickness;
-    private boolean oppositeDirection; //This keeps track of the direction of animation
     private int delayHelper; //This helps make a bouncy motion
-    private boolean displayText;
-
+    private boolean oppositeDirection; //This keeps track of the direction of animation
 
     /** Constructor that sets up the cubicle to be animated,
      * and some necessary information for animation (such as (x,y)
@@ -105,7 +104,7 @@ public class AnimatedPictureViewer {
      */
     class AnimationPanel extends JPanel {
         /**Overrides paintComponent(g) method so that
-         * we can animate our cubicle
+         * we can animate our cubicle bounce
          */
         public void paintComponent(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
