@@ -2,6 +2,9 @@ package edu.ucsb.cs56.w16.drawings.davidwang.advanced;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.Timer;
+
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 
 /**
  * A main class to view an animation
@@ -14,15 +17,16 @@ import java.awt.event.*;
 public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
-
     private PigWithBody pwb = new PigWithBody(50, 50, 100);
 
     Thread anim;
 
     private int x = 100;
     private int y = 100;
-
-    private int dx = 5;
+    private double radius = 100.0;
+    private double angle = 0;
+    private double dangle = Math.PI/12.0;
+    private int dx = 10;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -53,6 +57,13 @@ public class AnimatedPictureViewer {
         }
       });
 
+      frame.getContentPane().addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e){
+              System.out.println("mouse clicked");
+              JOptionPane.showMessageDialog(frame, "OINK! OINK! OINK! OINK!", "You poked the piggy!", JOptionPane.INFORMATION_MESSAGE);
+          }
+      });
+
     } // go()
 
     class DrawPanel extends JPanel {
@@ -64,10 +75,14 @@ public class AnimatedPictureViewer {
           g2.setColor(Color.white);
           g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
-          // Draw the Ipod
-          g2.setColor(Color.RED);
+          // Draw the pig
+          g2.setColor(Color.PINK);
           PigWithBody test = new PigWithBody(x, y, 100);
-          g2.draw(test);
+          Shape pb3 = ShapeTransforms.rotatedCopyOf(test,angle);
+          g2.draw(pb3);
+
+          g2.setColor(Color.BLACK);
+          g2.drawString("Click to make the piggy oink!", 350,20);
        }
     }
 
@@ -79,7 +94,9 @@ public class AnimatedPictureViewer {
 
             if (x >= 400) { dx = -5; }
             if (x <= 50) { dx = 5; }
-
+            if (angle >= Math.PI/6.0) {dangle = -Math.PI/12.0;}
+            if (angle <= -Math.PI/6.0) {dangle = Math.PI/12.0;}
+            angle += dangle;
             x += dx;
             panel.repaint();
             Thread.sleep(50);
