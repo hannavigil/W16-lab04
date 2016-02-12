@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
+    
 /**
  * A main class to view an animation
  *
@@ -13,16 +16,16 @@ import java.awt.event.*;
 
 public class AnimatedPictureViewer {
 
-    private DrawPanel panel = new DrawPanel();
-
-    private Keyboard keyboard = new Keyboard(100,100,200,50);
-
-    Thread anim;
-
     private int x = 100;
     private int y = 100;
+    
+    private DrawPanel panel = new DrawPanel();
+    
+    Thread anim;
 
     private int dx = 5;
+
+    private double angle = Math.PI/-2.0;
 
     public static void main(String[] args) {
 	new AnimatedPictureViewer().go();
@@ -64,8 +67,13 @@ public class AnimatedPictureViewer {
 	    g2.fillRect(0,0,this.getWidth(),this.getHeight());
 
 	    // Draw keyboard
+	    Keyboard keyboard = new Keyboard(x,y,300,75);
 	    g2.setColor(Color.BLUE);
-	    Keyboard k1 = new Keyboard(x,y,200,50);
+	    g2.draw(keyboard);
+
+	    // Rotate the keyboard
+	    Shape k1 = ShapeTranforms.rotatedCopyOf(keyboard,angle);
+	    g2.setColor(Color.RED);
 	    g2.draw(k1);
 	}
     }
@@ -80,6 +88,7 @@ public class AnimatedPictureViewer {
 		    if(x <= 50) { dx = 5; }
 
 		    x += dx;
+		    y += dx;
 		    panel.repaint();
 		    Thread.sleep(50);
 		}
