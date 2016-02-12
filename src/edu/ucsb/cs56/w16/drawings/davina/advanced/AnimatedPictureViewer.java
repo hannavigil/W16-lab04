@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Stroke;
+import java.awt.BasicStroke;
 
 /** A class to see an animated cubicle inside a GUI window.
    @author Davina Zamanzadeh
@@ -34,8 +36,9 @@ public class AnimatedPictureViewer {
     private double currentWidth;
     private double currentHeight;
     private double currentCubicleWallHeight;
-    boolean oppositeDirection = false; //This keeps track of the direction of animation
-    int delayHelper = 0; //This helps make a bouncy motion
+    private float lineThickness;
+    private boolean oppositeDirection; //This keeps track of the direction of animation
+    private int delayHelper; //This helps make a bouncy motion
 
 
     /** Constructor that sets up the cubicle to be animated,
@@ -51,7 +54,10 @@ public class AnimatedPictureViewer {
         currentWidth = initDeskWidth;
         currentHeight = initDeskHeight;
         currentCubicleWallHeight = initCubicleWallHeight;
-        hue = 54.1f; //Give it an initial color similar to magenta
+        hue = 54.1f; //Give it an initial color similar to orange
+        oppositeDirection = false;
+        delayHelper = 0;
+        lineThickness = 1.0f;
     }
 
     /**Sets the frame up (creates it, adds the necessary parts,
@@ -101,6 +107,7 @@ public class AnimatedPictureViewer {
 
             g2d.setColor(this.nextColor());
             Cubicle newCubicle = new Cubicle(currentX, currentY, currentWidth, currentHeight, currentCubicleWallHeight);
+            g2d.setStroke(new BasicStroke(lineThickness));
             g2d.draw(newCubicle);
         }
 
@@ -150,6 +157,7 @@ public class AnimatedPictureViewer {
                 currentHeight -= .2;
                 currentCubicleWallHeight -= .2;
                 delayHelper += .7;
+                lineThickness -= .005;
             }
             else if ((!oppositeDirection) || (currentX > initXPos)) { 
                 currentX--;
@@ -158,6 +166,7 @@ public class AnimatedPictureViewer {
                 currentHeight += .2;
                 currentCubicleWallHeight += .2;
                 delayHelper -= .7;
+                lineThickness += .005;
             }
 
             panel.repaint();
