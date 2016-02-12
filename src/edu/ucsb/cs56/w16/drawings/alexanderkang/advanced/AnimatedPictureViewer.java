@@ -12,8 +12,8 @@ import java.awt.event.*;
 
 public class AnimatedPictureViewer {
 
-	private int radius = 50;
-	private int slHeight = 75;
+	private int radius = 70;
+	private int slHeight = 50;
 	private Streetlight streetlight = new Streetlight(100,100, radius, slHeight);
 
 	private DrawPanel panel = new DrawPanel();
@@ -25,6 +25,7 @@ public class AnimatedPictureViewer {
 	private int dx = 5;
 	private int dy = 5;
 
+	private Color c = Color.blue;
 
 	public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -37,8 +38,9 @@ public class AnimatedPictureViewer {
       	frame.getContentPane().add(panel);
       	frame.setSize(600,600);
       	frame.setVisible(true);    
-      	anim = new Animation();
-      	anim.start();
+      	frame.getContentPane().addMouseListener(new ColorListener());
+      	//anim = new Animation();
+      	//anim.start();
       }
 
     class DrawPanel extends JPanel{
@@ -47,14 +49,35 @@ public class AnimatedPictureViewer {
 
     		g2.setColor(Color.white);
     		g2.fillRect(0,0,this.getWidth(),this.getHeight());
-
-    		g2.setColor(Color.BLUE);
+    		
+    		g2.setColor(c);
     		Streetlight s = new Streetlight(x,y,radius,slHeight);
     		g2.draw(s);
     	}
 
     }//drawpanel
 
+    
+    class ColorListener extends MouseAdapter{
+    	public void mouseEntered(MouseEvent e){
+        System.out.println("Color Changed");
+        	int red = (int) (Math.random() * 255);
+    		int green = (int) (Math.random() * 255);
+    		int blue = (int) (Math.random() * 255);
+    		c = new Color(red, green, blue);
+          anim = new Animation();
+          anim.start();
+        }
+
+        public void mouseExited(MouseEvent e){        
+          System.out.println("Mouse exited");
+          anim.interrupt();
+          while (anim.isAlive()){}
+          anim = null;         
+          panel.repaint();        
+        }
+    }
+	
     class Animation extends Thread{
     	public void run(){
     		try{
@@ -62,11 +85,11 @@ public class AnimatedPictureViewer {
     				//check if drawing is at the boundaries
     				if(x >= 525)
     					dx = -5;
-    				if(y >= 400)
+    				if(y >= 280)
     					dy = -5;
-    				if(x <= 75)
+    				if(x <= 20)
     					dx = 5;
-    				if(y <= 200)
+    				if(y <= 20)
     					dy = 5;
 
     				//move the drawing
@@ -74,12 +97,11 @@ public class AnimatedPictureViewer {
     				y += dy;
 
     				panel.repaint();
-            		Thread.sleep(50);
+            		Thread.sleep(45);
     			}
     		}
     		catch(Exception ex) {
           		if (ex instanceof InterruptedException) {
-            	// Do nothing - expected on mouseExited
           		} else {
             	ex.printStackTrace();
             	System.exit(1);
