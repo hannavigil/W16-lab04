@@ -10,6 +10,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
  * A main class to view an animation
  *
  * @author Skyler Bistarkey-Rez
+ * @author Andrew Berls (who provided a template for displaying an animation)
  * @version for CS56, W16
  */
 
@@ -29,6 +30,7 @@ public class AnimatedPictureViewer {
     private int dx = 5;
     private int dy = -5;
     private double rotate = 0;
+    
     //The smartphone will rotate pi/24 radians every update
     private double drotate = (Math.PI/24.0);
 
@@ -47,13 +49,11 @@ public class AnimatedPictureViewer {
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
         public void mouseEntered(MouseEvent e){
-        System.out.println("Mouse entered");
           animation = new Animation();
           animation.start();
         }
 
-        public void mouseExited(MouseEvent e){        
-          System.out.println("Mouse exited");
+        public void mouseExited(MouseEvent e){    
           // Kill the animation thread
           animation.interrupt();
           while (animation.isAlive()){}
@@ -61,8 +61,7 @@ public class AnimatedPictureViewer {
           panel.repaint();        
         }
       });
-      
-    } // go()
+    }
 
     class DrawPanel extends JPanel {
        public void paintComponent(Graphics g) {
@@ -71,7 +70,7 @@ public class AnimatedPictureViewer {
 
          // Clear the panel first
           g2.setColor(Color.white);
-          g2.fillRect(0,0,this.getWidth(), this.getHeight());
+          g2.fillRect(0, 0, this.getWidth(), this.getHeight());
 
           // Draw the SmartPhone
           g2.setColor(Color.MAGENTA);
@@ -99,7 +98,8 @@ public class AnimatedPictureViewer {
 
 	    //This is just so the rotation amount will stay between
 	    //0 and 2pi radians
-	    //More for debug because the computer doesn't care how many rads
+	    //More for programmer insight than coding insight
+	    //because the computer doesn't care how many rads
 	    if (rotate >= (Math.PI*2.0)) {rotate = 0.0;}
             
             x += dx;
