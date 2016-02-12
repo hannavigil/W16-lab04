@@ -106,7 +106,7 @@ public class AnimatedPictureViewer {
          * for the animation
          */
         private Color nextColor() {
-            saturation = saturation - 1;
+            saturation = 1;
             return Color.getHSBColor(hue, saturation,1);
         }
     }
@@ -145,14 +145,14 @@ public class AnimatedPictureViewer {
             if(oppositeDirection) {
                 currentX++;
                 currentY -= .2;
-                currentWidth--;
+                currentWidth -= .7;
                 currentHeight -= .2;
                 currentCubicleWallHeight -= .2;
             }
             else if ((!oppositeDirection) || (currentX > initXPos)) { 
                 currentX--;
                 currentY += .2;
-                currentWidth++;
+                currentWidth += .7;
                 currentHeight += .2;
                 currentCubicleWallHeight += .2;
             }
