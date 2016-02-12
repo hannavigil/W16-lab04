@@ -18,6 +18,7 @@ public class AnimatedPictureViewer {
 
     private int x = 100;
     private int y = 100;
+    private int color 0 ;
     
     private DrawPanel panel = new DrawPanel();
     
@@ -63,18 +64,21 @@ public class AnimatedPictureViewer {
 	    Graphics2D g2 = (Graphics2D) g;
 
 	    // Clear the panel
-	    g2.setColor(Color.white);
+	    g2.setColor(Color.WHITE);
 	    g2.fillRect(0,0,this.getWidth(),this.getHeight());
 
 	    // Draw keyboard
 	    Keyboard keyboard = new Keyboard(x,y,300,75);
-	    g2.setColor(Color.BLUE);
+	    if(color == 0) {
+		g2.setColor(Color.BLUE);
+	    } else {
+		g2.setColor(Color.GREEN);
+	    }
 	    g2.draw(keyboard);
 
 	    // Rotate the keyboard
-	    Shape k1 = ShapeTranforms.rotatedCopyOf(keyboard,angle);
-	    g2.setColor(Color.RED);
-	    g2.draw(k1);
+	    //Shape k1 = edu.ucsb.cs56.w16.drawings.utilities.ShapeTranforms.rotatedCopyOf(keyboard,angle);
+	    
 	}
     }
 
@@ -84,8 +88,13 @@ public class AnimatedPictureViewer {
 		while(true) {
 		    // Bounce off the walls
 		    
-		    if(x >= 400) { dx = -5; }
-		    if(x <= 50) { dx = 5; }
+		    if(x >= 400) {
+			dx = -5;
+			color = 0;
+		    if(x <= 50) {
+			dx = 5;
+			color = 1;
+		    }
 
 		    x += dx;
 		    y += dx;
