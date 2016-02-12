@@ -52,6 +52,7 @@ public class AnimatedPictureViewer{
 
 		    g2.setColor(Color.black);
 		    ChocolateChipCookie cookie = new ChocolateChipCookie(xPos,yPos,50);
+		    g2.drawString("A bouncing cookie by Christopher Beser",20,20);
 		    g2.draw(cookie);
 		}
 	    }//end class MyPanel
