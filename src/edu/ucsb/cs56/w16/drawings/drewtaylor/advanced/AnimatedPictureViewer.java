@@ -132,6 +132,7 @@ public class AnimatedPictureViewer {
 	    note3 += dnote3;
      
             panel.repaint();
+	    Toolkit.getDefaultToolkit().sync();
             Thread.sleep(50);
           }
         } catch(Exception ex) {
