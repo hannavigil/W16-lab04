@@ -35,6 +35,8 @@ public class AnimatedPictureViewer {
     private double currentHeight;
     private double currentCubicleWallHeight;
     boolean oppositeDirection = false; //This keeps track of the direction of animation
+    int delayHelper = 0; //This helps make a bouncy motion
+
 
     /** Constructor that sets up the cubicle to be animated,
      * and some necessary information for animation (such as (x,y)
@@ -115,7 +117,6 @@ public class AnimatedPictureViewer {
      * component.
      */
     class Animate extends Thread{
-
         /**Override the Thread method run()
          * in order to properly animate the
          * cubicle.
@@ -123,7 +124,7 @@ public class AnimatedPictureViewer {
         public void run(){
             try{
                 while (true){
-                    display(1);
+                    display(calculateDelay());
 
                 }
             } catch(Exception ex){
@@ -148,6 +149,7 @@ public class AnimatedPictureViewer {
                 currentWidth -= .7;
                 currentHeight -= .2;
                 currentCubicleWallHeight -= .2;
+                delayHelper += .7;
             }
             else if ((!oppositeDirection) || (currentX > initXPos)) { 
                 currentX--;
@@ -155,12 +157,20 @@ public class AnimatedPictureViewer {
                 currentWidth += .7;
                 currentHeight += .2;
                 currentCubicleWallHeight += .2;
+                delayHelper -= .7;
             }
 
             panel.repaint();
             if(Thread.currentThread().interrupted())
                 throw(new InterruptedException());
             Thread.currentThread().sleep(delay);
+        }
+
+        /**Helper function that sets the delay so that it 
+         * looks like the cubicle is bouncing.
+         */
+        private int calculateDelay() { 
+            return (int)(Math.pow(1.6, delayHelper*Math.log(delayHelper + 1)));
         }
 
     }
