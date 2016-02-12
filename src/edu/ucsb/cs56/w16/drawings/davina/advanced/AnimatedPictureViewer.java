@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
+import java.awt.Font;
 
 /** A class to see an animated cubicle inside a GUI window.
    @author Davina Zamanzadeh
@@ -39,6 +40,7 @@ public class AnimatedPictureViewer {
     private float lineThickness;
     private boolean oppositeDirection; //This keeps track of the direction of animation
     private int delayHelper; //This helps make a bouncy motion
+    private boolean displayText;
 
 
     /** Constructor that sets up the cubicle to be animated,
@@ -58,6 +60,7 @@ public class AnimatedPictureViewer {
         oppositeDirection = false;
         delayHelper = 0;
         lineThickness = 1.0f;
+        displayText = false;
     }
 
     /**Sets the frame up (creates it, adds the necessary parts,
@@ -84,6 +87,11 @@ public class AnimatedPictureViewer {
                 while (animate.isAlive()){}
                 animate = null;
             }
+
+            //On click we want to toggle display text
+            public void mouseClicked(MouseEvent e) {
+                displayText = !displayText;
+            }
         });
     }
 
@@ -108,6 +116,10 @@ public class AnimatedPictureViewer {
             g2d.setColor(this.nextColor());
             Cubicle newCubicle = new Cubicle(currentX, currentY, currentWidth, currentHeight, currentCubicleWallHeight);
             g2d.setStroke(new BasicStroke(lineThickness));
+            if(displayText) {
+                g2d.setFont(new Font("ComicSans", Font.BOLD, 30));
+                g2d.drawString("Doing work is COOL!!!!", 100,100);
+            }
             g2d.draw(newCubicle);
         }
 
