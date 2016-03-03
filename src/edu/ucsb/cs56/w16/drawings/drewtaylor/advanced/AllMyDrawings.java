@@ -43,8 +43,8 @@ public class AllMyDrawings
 	
 	// Draw two measures with the notes
 	
-	Melody hw1 = new Melody(50,350,40,75);
-	Melody hw2 = new Melody(200,350,200,100);
+	Melody hw1 = new Melody(50,350,40,75,1,2,3);
+	Melody hw2 = new Melody(200,350,200,100,2,4,5);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0xFF4500)); g2.draw(hw2);
@@ -71,7 +71,7 @@ public class AllMyDrawings
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	Melody h1 = new Melody(100,250,50,75);
+	Melody h1 = new Melody(100,250,50,75,1,2,3);
 	g2.setColor(Color.PINK); g2.draw(h1);
 	
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
@@ -88,8 +88,8 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	Melody hw1 = new Melody(50,350,40,75);
-	Melody hw2 = new Melody(200,350,200,100);
+	Melody hw1 = new Melody(50,350,40,75,1,2,3);
+	Melody hw2 = new Melody(200,350,200,100,1,2,3);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -113,18 +113,18 @@ public class AllMyDrawings
 	g2.drawString("Black and Gray Music by Drew Taylor", 20,20);
 	
 	Measure large = new Measure(100,50,225,150);
-	Melody smallCC = new Melody(20,50,40,30);
+	Melody smallCC = new Melody(20,50,40,30,1,2,3);
 
-        Melody smallCC1 = new Melody(300,300,225,150);
+        Melody smallCC1 = new Melody(300,300,225,150,1,2,3);
         Measure large1 = new Measure(50,100,40,30);
 
         Measure large2 = new Measure(200,200,225,150);
-        Melody smallCC2 = new Melody(175,350,40,30);
+        Melody smallCC2 = new Melody(175,350,40,30,1,2,3);
 
-        Melody smallCC3 = new Melody(50,400,225,150);
+        Melody smallCC3 = new Melody(50,400,225,150,1,2,3);
         Measure large3 = new Measure(75,75,40,30);
 
-        Melody smallCC4 = new Melody(350,50,225,150);
+        Melody smallCC4 = new Melody(350,50,225,150,1,2,3);
         Measure large4 = new Measure(200,50,40,30);
 	
 	g2.setColor(Color.BLACK);     g2.draw(large);
