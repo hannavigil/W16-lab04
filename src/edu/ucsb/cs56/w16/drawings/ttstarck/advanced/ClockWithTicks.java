@@ -64,5 +64,32 @@ public class ClockWithTicks extends Clock implements Shape
 	this.set(new GeneralPath(s2));
 	*/
 	
-    }    
+    }
+    public ClockWithTicks(double x, double y, double radius, int minute, int hour)
+    {
+        // construct the basic clock shell                                              
+        super(x,y,radius, minute, hour);
+
+        Line2D.Double tick0 = new Line2D.Double(x+radius/2,y+radius/2+3*radius/8,x+radius/2,y+radius);
+        Line2D.Double tick3 = new Line2D.Double(x+radius/2+radius*3/8,y+radius/2,x+radius,y+radius/2);
+        Line2D.Double tick6 = new Line2D.Double(x+radius/2,y+radius/2-3*radius/8,x+radius/2,y);
+        Line2D.Double tick9 = new Line2D.Double(x+radius/2-radius*3/8,y+radius/2,x,y+radius/2);
+
+        GeneralPath wholeClock;
+
+        for(int i = 0; i < 3; i++){
+            wholeClock = this.get();
+            wholeClock.append(tick0, false);
+            wholeClock.append(tick3, false);
+            wholeClock.append(tick6, false);
+            wholeClock.append(tick9,false);
+
+            Shape s = ShapeTransforms.rotatedCopyOf(wholeClock, Math.PI/6);
+
+            this.set(new GeneralPath(s));
+        }
+	wholeClock = this.get();
+	Shape s = ShapeTransforms.rotatedCopyOf(wholeClock, 3*Math.PI/2);
+	this.set(new GeneralPath(s));
+    }
 }
